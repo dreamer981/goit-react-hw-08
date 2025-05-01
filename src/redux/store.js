@@ -1,16 +1,26 @@
-import { configureStore } from "@reduxjs/toolkit";
-import contactsReducer from "./contactsSlice";
-import filtersReducer from "./filtersSlice";
-import { combineReducers } from "redux";
+import { configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // localStorage kullanacağız
+import authReducer from './auth/slice'; // auth reducer
+import contactsReducer from './contacts/slice';
+import filtersReducer from './filters/slice';
 
-// Root reducer
-const rootReducer = combineReducers({
+// persist config
+const authPersistConfig = {
+  key: 'auth', // Bu key ile localStorage'a kaydedilecek
+  storage, // Hangi depolamayı kullanacağımızı belirtiyoruz (burada localStorage)
+  whitelist: ['token'], // Sadece token'ı saklıyoruz, user bilgisi saklanmıyor
+};
+
+const rootReducer = {
+  auth: persistReducer(authPersistConfig, authReducer),
   contacts: contactsReducer,
   filters: filtersReducer,
+};
+
+const store = configureStore({
+  reducer: rootReducer,
 });
 
-// Store oluşturma
-export const store = configureStore({
-  reducer: rootReducer
-});
-
+export let persistor = persistStore(store);
+export default store;
