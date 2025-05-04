@@ -30,11 +30,13 @@ function App() {
   if (isRefreshing) return <div>Loading...</div>;
 
   return (
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        {/* Tüm route'ları Layout içine alıyoruz */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
           <Route
-            path="/register"
+            path="register"
             element={
               <RestrictedRoute
                 redirectTo="/contacts"
@@ -43,7 +45,7 @@ function App() {
             }
           />
           <Route
-            path="/login"
+            path="login"
             element={
               <RestrictedRoute
                 redirectTo="/contacts"
@@ -52,13 +54,14 @@ function App() {
             }
           />
           <Route
-            path="/contacts"
+            path="contacts"
             element={
               <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
-        </Routes>
-      </Suspense>
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 

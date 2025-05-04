@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
-  async (__, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const response = await axios.get("/contacts");
       return response.data;
@@ -17,10 +17,20 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
     try {
+      // Önce aynı isimde contact var mı kontrol et
+      const { data: existingContacts } = await axios.get("/contacts", {
+        params: { name: contact.name }
+      });
+      
+      if (existingContacts.length > 0) {
+        throw new Error('Contact already exists');
+        
+      }
+      
       const response = await axios.post("/contacts", contact);
       return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

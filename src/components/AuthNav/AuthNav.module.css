@@ -1,17 +1,21 @@
 .link {
+    margin-right: 1rem;
     text-decoration: none;
-    font-size: 16px;
-    margin: 10px;
-    border: solid 1px;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
-.link:hover {
-   background-color: #070705ee;
-    color: #242424;
-}
-.active{
-    background-color: #2b522eee;
-    color: #242424;
-    text-decoration: underline;
-}
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .link:hover {
+    background-color: #e9ecef;
+  }
+  
+  .active {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .active:hover {
+    background-color: #0069d9;
+  }

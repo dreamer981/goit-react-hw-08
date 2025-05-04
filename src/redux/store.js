@@ -15,8 +15,14 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     contacts: contactsReducer,
-    filters: filtersReducer,
+    filter: filtersReducer
   },
-});
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
+      },
+    }),
+})
 
 export const persistor = persistStore(store);
