@@ -1,56 +1,61 @@
+
 .contactForm {
+  margin-top: 90px;
+  margin-bottom: 25px;
   display: flex;
   align-items: center;
-  width: 320px;
+  justify-content: center;
+  width: 360px;
+  background-color: rgba(20, 20, 20, 0.3);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
 }
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  width: 300px;
-  margin-bottom: 20px;
-  padding: 20px;
-  border: 1px solid #8b8b8b; /* Hafif bir sınır ekler */
-  border-radius: 8px; /* Köşeleri yuvarlatır */
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.error {
-  color: red;
-  display: flex;
-  align-items: baseline;
+  gap: 0.8rem;
+  width: 100%;
 }
 
 label {
-  font-size: 16px;
-  display: flex;
-  align-items: baseline;
-  color: #000000; /* Etiket rengi */
+  font-size: 15px;
+  color: #1e1e1e;
+  font-weight: 500;
 }
 
 input {
-  padding: 8px;
+  padding: 0.6rem;
   font-size: 14px;
-  border: 1px solid #adadad;
-  border-radius: 4px;
+  border: 1px solid #514276;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #111;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin-top: -0.4rem;
 }
 
 button {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin-top: 10px;
-  margin-left: 50px;
-  width: 150px;
+  margin-top: 0.5rem;
+  align-self: center;
   padding: 10px 20px;
-  font-size: 16px;
-  background-color: #d0e2ba; /* Buton arka planı yeşil */
-  color: rgb(0, 0, 0);
-  border: solid 2px rgb(136, 167, 125);
-  border-radius: 4px;
+  font-size: 15px;
+  background-color: #514276;
+  color: #ffffff;
+  border: 1px solid #514276;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 button:hover {
-  background-color: rgb(136, 170, 136);
+  background-color: #595689;
+  color: #1e1e1e;
 }

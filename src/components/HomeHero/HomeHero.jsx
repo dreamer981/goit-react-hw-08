@@ -1,11 +1,14 @@
-import styles from './HomeHero.module.css';
-
+import styles from "./HomeHero.module.css";
 
 const HomeHero = () => {
   return (
     <div className={styles.homeHero}>
       <h1>Welcome to Phonebook</h1>
-      <p>Log in or register to manage your contacts.</p>
+      <h2>Easily manage your contacts and stay in touch.</h2>
+      <p className={styles.about}>
+        Phonebook is your go-to app for organizing and managing contacts. Keep
+        your contacts secure, easily accessible, and always up-to-date.
+      </p>
     </div>
   );
 };
