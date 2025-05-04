@@ -5,7 +5,6 @@ import styles from "./ContactList.module.css";
 
 export const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);  
-  // Debug için contacts'leri loglayın
   console.log('Current contacts:', contacts);
 
   return (
@@ -13,7 +12,6 @@ export const ContactList = () => {
       {contacts.map((contact) => (
         <li
           key={contact.id}
-          className="w bg-slate-800 border border-slate-700 rounded-xl p-4 shadow-md"
         >
           <Contact
             id={contact.id}
