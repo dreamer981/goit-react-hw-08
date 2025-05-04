@@ -4,22 +4,24 @@ import  Contact  from "../Contact/Contact";
 import styles from "./ContactList.module.css";
 
 export const ContactList = () => {
-  const filteredContacts = useSelector(selectFilteredContacts);
-  
+  const contacts = useSelector(selectFilteredContacts);  
   // Debug için contacts'leri loglayın
-  console.log('Current contacts:', filteredContacts);
+  console.log('Current contacts:', contacts);
 
   return (
     <ul className={styles.ContactList}>
-      {filteredContacts.length > 0 ? (
-        filteredContacts.map(({ id, name, number }) => (
-          <li key={id} className={styles.ContactListItem}>
-            <Contact name={name} number={number} id={id} />
-          </li>
-        ))
-      ) : (
-        <p className={styles.noContacts}>No contacts found</p>
-      )}
+      {contacts.map((contact) => (
+        <li
+          key={contact.id}
+          className="w bg-slate-800 border border-slate-700 rounded-xl p-4 shadow-md"
+        >
+          <Contact
+            id={contact.id}
+            name={contact.name}
+            number={contact.number}
+          />
+        </li>
+      ))}
     </ul>
   );
 };
