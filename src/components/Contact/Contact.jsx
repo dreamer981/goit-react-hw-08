@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 import styles from "./Contact.module.css";
 import { selectFilteredContacts } from "../../redux/contacts/selectors";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Contact() {
   const contacts = useSelector(selectFilteredContacts);
