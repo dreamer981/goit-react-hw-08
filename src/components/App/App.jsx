@@ -8,12 +8,12 @@ import { RestrictedRoute } from "../RestrictedRoute";
 import Layout from "../Layout/Layout";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
-const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
+const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage.jsx"));
 const RegistrationPage = lazy(() =>
-  import("../../pages/RegistraionPage/RegistrationPage")
+  import("../../pages/RegistraionPage/RegistrationPage.jsx")
 );
 const ContactsPage = lazy(() =>
-  import("../../pages/ContactsPage/ContactsPage")
+  import("../../pages/ContactsPage/ContactsPage.jsx")
 );
 
 function App() {
