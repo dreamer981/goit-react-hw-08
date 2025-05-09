@@ -22,6 +22,7 @@ export default function ContactsForm() {
   });
   
   const handleSubmit = async (values, { resetForm }) => {
+    resetForm();
     setIsSubmitting(true); 
     try {
       const newContact = {
@@ -29,13 +30,13 @@ export default function ContactsForm() {
         number: values.number,
       };
       await dispatch(addContact(newContact)).unwrap(); 
-      resetForm();
     } catch (error) {
       console.error("Failed to add contact:", error);
     } finally {
       setIsSubmitting(false); 
     }
   };
+
 
   return (
     <div className={styles.contactForm}>

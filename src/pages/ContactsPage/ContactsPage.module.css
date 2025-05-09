@@ -1,31 +1,8 @@
-.pageContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 2rem;
-    background-color: #f5f5f5;
-  }
-  
-  .topSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 800px;
-    margin-bottom: 2rem;
-    gap: 2rem;
-  }
-  
-  .contactForm {
-    flex: 1;
-  }
-  .searchBox {
-    flex: 1;
-  }
-  
-  .contactList {
-    width: 100%;
-    max-width: 800px;
-  }
-
+.contactsPage{
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+}
  

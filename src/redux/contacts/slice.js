@@ -26,11 +26,20 @@ const contactsSlice = createSlice({
   .addCase(addContact.pending, (state)=> {
     state.loading = true;
   })
-  .addCase(addContact.fulfilled, (state, action)=> {
-    state.loading = false;
-    state.error = null;
+  .addCase(addContact.fulfilled, (state, action) => {
+  state.loading = false;
+  state.error = null;
+  
+  // Çift eklemeyi önlemek için kontrol ekleyin
+  const isDuplicate = state.items.some(contact => 
+    contact.id === action.payload.id || 
+    contact.number === action.payload.number
+  );
+  
+  if (!isDuplicate) {
     state.items.push(action.payload);
-  })
+  }
+})
   .addCase(addContact.rejected, (state, action)=> {
     state.loading = false;
     state.error = action.payload;

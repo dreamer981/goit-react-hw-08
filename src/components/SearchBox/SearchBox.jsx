@@ -9,7 +9,7 @@ const SearchBox = () => {
   const handleChange = (event) => dispatch(changeFilter(event.target.value));
 
   return (
-    <div>
+    <div className={style.searchBox}>
       <label>Find contacts by name</label>
       <input
         type="text"
